@@ -6,17 +6,13 @@ require 'pry'
 #
 # Tally up all the votes and determine who won.
 
-
-
 halloween_custome_vote =
-          [{ 1 => 'Smudge', 2 => 'Tigger', 3 => 'Simba' },
-           { 1 => 'Bella', 2 => 'Lucky', 3 => 'Tigger' },
-           { 1 => 'Bella', 2 => 'Boots', 3 => 'Smudge' },
-           { 1 => 'Boots', 2 => 'Felix', 3 => 'Bella' },
-           { 1 => 'Lucky', 2 => 'Felix', 3 => 'Bella' },
-           { 1 => 'Smudge', 2 => 'Simba', 3 => 'Felix' }]
-
-
+  [{ 1 => 'Smudge', 2 => 'Tigger', 3 => 'Simba' },
+   { 1 => 'Bella', 2 => 'Lucky', 3 => 'Tigger' },
+   { 1 => 'Bella', 2 => 'Boots', 3 => 'Smudge' },
+   { 1 => 'Boots', 2 => 'Felix', 3 => 'Bella' },
+   { 1 => 'Lucky', 2 => 'Felix', 3 => 'Bella' },
+   { 1 => 'Smudge', 2 => 'Simba', 3 => 'Felix' }]
 
 def vote_count(ballots)
 
@@ -26,32 +22,31 @@ def vote_count(ballots)
   ballots.each do |ballot|
     ballot.each do |placement, name|
       # binding.pry
-        if placement == 1
-          vote_count[name] += 3
+      if placement == 1
+        vote_count[name] += 3
 
-        elsif placement == 2
-          vote_count[name] += 2
+      elsif placement == 2
+        vote_count[name] += 2
 
-        else
-          vote_count[name] += 1
-        end
+      else
+        vote_count[name] += 1
+      end
 
     end
   end
   p vote_count
 end
 
-
 vote_count(halloween_custome_vote)
 
-  def vote_count_approach2(ballots)
-    vote_count = {}
-    vote_count.default = 0
-    ballots.each do |ballot|
-      binding.pry
-      vote_count[ballot[1]] += 3
-      vote_count[ballot[2]] += 2
-      vote_count[ballot[1]] += 1
+def vote_count_approach2(ballots)
+  vote_count = {}
+  vote_count.default = 0
+  ballots.each do |ballot|
+    binding.pry
+    vote_count[ballot[1]] += 3
+    vote_count[ballot[2]] += 2
+    vote_count[ballot[1]] += 1
   end
   p vote_count
 end
